@@ -1,0 +1,282 @@
+what is HTML?
+HTML = HyperText Markup Language
+
+HTML is used to define the structure and content of a webpage.
+
+How Browser Renders HTML:
+1. The browser receives the HTML file from the server.
+2. The browser parses the HTML code and creates a Document Object Model (DOM) tree.
+3. The browser applies CSS styles to the elements in the DOM tree.  
+4. The browser executes any JavaScript code that is included in the HTML file.
+
+Basic Structure of an HTML Document:
+```html
+<!DOCTYPE html>// Declares the document type as HTML5
+<html lang="en">// The root element of the HTML document
+<head>// Contains metadata about the document, such as the title and character encoding
+    <meta charset="UTF-8">// Specifies the character encoding for the document
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">// Sets the viewport to make the website responsive on different devices
+    <title>Document</title>// Sets the title of the document, which appears in the browser tab
+</head>
+<body>// Contains the content of the document, such as text, images, and links
+    <h1>Hello World</h1>// A heading element that displays "Hello World" on the webpage
+
+</body>
+</html>
+```
+
+html tags are used to define the structure and content of a webpage. Some common HTML tags include:
+- `<h1>` to `<h6>`: Heading tags used to define headings of different levels.
+- `<p>`: Paragraph tag used to define a paragraph of text.
+- `<a>`: Anchor tag used to create links.
+- `<img>`: Image tag used to display images.
+- `<ul>` and `<ol>`: Unordered and ordered list tags used to create lists.
+- `<div>`: Division tag used to group elements together for styling or layout purposes.
+- `<span>`: Inline container tag used to group text or elements for styling purposes.
+- `<input>`: Input tag used to create interactive controls for forms.
+
+html Element:
+<p>hello</p>
+
+html Attributes:
+HTML attributes provide additional information about HTML elements. They are always specified in the opening tag and usually come in name/value pairs like `name="value"`. Some common HTML attributes include:
+- `id`: Specifies a unique identifier for an element.
+- `class`: Specifies one or more class names for an element, which can be used for styling or scripting.
+- `src`: Specifies the URL of an image or other media file.
+- `href`: Specifies the URL of a link.
+- `alt`: Specifies alternative text for an image, which is displayed if the image cannot be loaded.
+
+some elements don't need closing tags, such as `<img>`, `<input>`, and `<br>`. These are called self-closing or void elements.
+
+Nested Elements:
+HTML elements can be nested inside other elements to create a hierarchical structure. For example:
+<div>
+    <h1>Heading</h1>
+    <p>Paragraph</p>
+</div>
+
+html Comments:
+HTML comments are used to add notes or explanations within the HTML code. They are not displayed in the browser and are ignored by the HTML parser. HTML comments are written using the following syntax:
+```html
+<!-- This is a comment -->
+
+ctrl + / is used to comment and uncomment the code in vs code
+```
+Block-level Elements:
+Block-level elements are those that start on a new line and take up the full width of their parent container. Examples include `<div>`, `<p>`, `<h1>` to `<h6>`, `<ul>`, `<ol>`, and `<li>`.
+
+inline Elements:
+Inline elements are those that do not start on a new line and only take up as much width as necessary. Examples include `<span>`, `<a>`, `<strong>`, `<em>`, and `<img>`.
+
+Best Practices for Writing HTML:
+
+Use proper indentation.
+Use meaningful element names.
+Close elements correctly.
+Avoid unnecessary elements.
+Use semantic HTML.
+Use lowercase HTML tags.
+Use meaningful alt text.
+Maintain proper heading hierarchy.
+
+Text and Formatting Tags:
+- `<strong>`: Used to make text bold.
+- `<em>`: Used to make text italic.
+- `<u>`: Used to underline text.
+- `<s>`: Used to strike through text.
+- `<mark>`: Used to highlight text.
+- `<small>`: Used to display smaller text.
+- `<sub>`: Used to display subscript text.
+- `<sup>`: Used to display superscript text.
+
+heading Tags:
+- `<h1>`: Represents the highest level heading.
+- `<h2>`: Represents the second level heading.
+- `<h3>`: Represents the third level heading.
+- `<h4>`: Represents the fourth level heading.
+- `<h5>`: Represents the fifth level heading.
+- `<h6>`: Represents the sixth level heading.
+
+paragraph Tag:
+- `<p>`: Represents a paragraph of text.
+
+line break Tag:
+- `<br>`: Represents a line break in the text.
+
+Horizontal Rule Tag:
+- `<hr>`: Represents a horizontal rule or line, used to separate content.
+
+strong vs b:
+
+- `<strong>`: Indicates that the text is of strong importance or emphasis. It is typically displayed in bold by default, but it also conveys semantic meaning to assistive technologies.
+
+- `<b>`: Represents text that is stylistically bold, but it does not convey any semantic meaning. It is purely a visual styling element.
+
+- `<code>`: Represents a fragment of computer code. It is typically displayed in a monospaced font and is used to indicate code snippets or programming-related content.
+
+html Entities:
+HTML entities are special characters that are reserved in HTML and cannot be used directly in the code. They are used to represent characters that have special meanings in HTML, such as the ampersand (&), the less-than sign (<), and the greater-than sign (>).
+
+&lt;     <
+&gt;     >
+&amp;    &
+&quot;   "
+&nbsp;   space
+
+utf-8 Encoding:
+UTF-8 (Unicode Transformation Format - 8-bit) is a character encoding that can represent every character in the Unicode character set. It is widely used on the web and supports a wide range of characters from different languages and scripts.
+UTF-8 encoding uses one to four bytes to represent each character, allowing for efficient storage and transmission of text. It is backward compatible with ASCII, meaning that any valid ASCII text is also valid UTF-8 text.
+
+Hyperlinks:
+Hyperlinks are used to create links between web pages or to other resources on the internet. They are created using the `<a>` (anchor) tag in HTML. The `href` attribute specifies the URL of the page or resource that the link points to.
+
+```html
+<a href="https://www.example.com">Visit Example</a>
+```
+
+Absolute vs Relative links:
+
+- Absolute links: These links contain the full URL of the target page, including the protocol (http:// or https://) and domain name. They are used to link to external websites or resources.
+Example: `<a href="https://www.example.com">Visit Example</a>`
+
+
+- Relative links: These links are relative to the current page and do not include the full URL. They are used to link to other pages within the same website.
+Example: `<a href="about.html">About Us</a>`    
+
+Open in new tab:
+To open a link in a new tab, you can use the `target` attribute with the value `_blank` in the `<a>` tag. This tells the browser to open the linked page in a new tab or window.
+```html
+<a href="https://www.example.com" target="_blank">Visit Example</a>
+```
+Linking pages inside a project:
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="pages/services.html">Services</a>
+
+Images:
+Images are added to web pages using the `<img>` tag in HTML. The `src` attribute specifies the URL of the image file, and the `alt` attribute provides alternative text that describes the image for accessibility purposes.
+```html
+<img src="image.jpg" alt="Description of the image">
+```
+Semantic HTML:
+Semantic HTML refers to the use of HTML elements that have meaningful names and convey the purpose or meaning of the content they contain. Using semantic HTML helps improve accessibility, search engine optimization (SEO), and code readability. Some examples of semantic HTML elements include:
+- `<header>`: Represents the header section of a webpage or a section of content.
+- `<nav>`: Represents a navigation section.
+- `<main>`: Represents the main content of a webpage.
+- `<section>`: Represents a standalone section of content.
+- `<article>`: Represents a self-contained piece of content.
+- `<aside>`: Represents supplementary content, such as a sidebar.
+- `<footer>`: Represents the footer section of a webpage or a section of content.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Student Portfolio</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Sushil's Portfolio</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>About Me</h2>
+
+            <p>
+                I am a computer science student interested
+                in web development.
+            </p>
+
+            <img
+                src="images/profile.jpg"
+                alt="Profile photo of the student"
+                width="200"
+            >
+        </section>
+
+        <section>
+            <h2>My Skills</h2>
+
+            <p>HTML, CSS, JavaScript</p>
+        </section>
+
+        <article>
+            <h2>My Latest Project</h2>
+
+            <p>
+                I created a student portfolio website.
+            </p>
+        </article>
+
+        <aside>
+            <h2>Related Information</h2>
+            <p>Learn CSS and JavaScript next.</p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Student Portfolio</p>
+    </footer>
+
+</body>
+
+</html>
+
+Accessibility in HTML:
+Accessibility in HTML refers to the practice of designing and developing web content that can be accessed and used by people with disabilities. This includes individuals with visual, auditory, motor, or cognitive impairments. Ensuring accessibility in HTML involves using semantic elements, providing alternative text for images, ensuring proper color contrast, and making interactive elements keyboard-navigable.
+
+HOMEWORK
+Personal Portfolio
+
+Create a 3-page portfolio website.
+portfolio/
+│
+├── index.html
+├── about.html
+├── projects.html
+├── contact.html
+│
+└── images/
+    ├── profile.jpg
+    └── project.jpg
+
+
+Home Page
+Include:
+Name
+Introduction
+Profile image
+Navigation
+Skills
+Footer
+
+
+About Page
+Include:
+Education
+About me
+Hobbies
+Career goal
+
+
+Projects Page
+Include at least 3 projects.
+Each project should have:
+<article>
+    <h2>Project Name</h2>
+    <p>Project description...</p>
+    <img src="..." alt="...">
+</article>

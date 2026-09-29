@@ -1,0 +1,249 @@
+Software
+
+Software is a collection of programs/instructions that tells a computer what to do.
+
+Two main types of software are:
+
+Software
+├── System Software
+│   ├── Windows
+│   ├── Linux
+│   └── macOS
+│
+└── Application Software
+    ├── Chrome
+    ├── VS Code
+    └── WhatsApp
+
+A web application generally constains three main components:
+1. Frontend: The part of the application that users interact with directly. It includes the user interface and user experience design. Technologies used for frontend development include HTML, CSS, and JavaScript.
+
+2. Backend: The server-side part of the application that handles business logic, database interactions, and server configuration. Backend development often involves programming languages like Python, Java, Ruby, or Node.js, and frameworks such as Django, Spring, or Express.
+
+3. Database: The component that stores and manages data for the application. Databases can be relational (like MySQL, PostgreSQL) or non-relational (like MongoDB, Redis), depending on the application's requirements.
+
+what happens when you open a website ?
+
+User
+ ↓
+Browser
+ ↓
+DNS
+ ↓
+Server
+ ↓
+HTTP Request
+ ↓
+Server processes request
+ ↓
+HTTP Response
+ ↓
+Browser
+ ↓
+HTML/CSS/JS
+ ↓
+Web Page
+
+Browsers are software applications that allow users to access and interact with websites. When a user opens a website, the following steps occur:
+1. The user enters a URL in the browser's address bar.
+2. The browser sends a request to the Domain Name System (DNS) to resolve the domain name into an IP address.
+3. The DNS responds with the IP address of the server hosting the website.
+4. The browser sends an HTTP request to the server using the resolved IP address.
+5. The server processes the request and generates an HTTP response.
+6. The browser receives the HTTP response and renders the web page.
+7. The browser interprets the HTML, CSS, and JavaScript code to display the web page to the user.
+8. The user can now interact with the web page, and any further actions (like clicking links or submitting forms) will trigger additional requests and responses between the browser and server.
+
+client-server architecture:
+ The client (the user's browser) sends requests to the server (the web server), which processes the requests and sends back responses. This is a common pattern in web development where the client and server communicate over a network.
+
+ HTTP (Hypertext Transfer Protocol) is the protocol used for communication between the client and server. It defines how requests and responses are formatted and transmitted over the internet.
+
+ HTTP methods include GET (to retrieve data), POST (to submit data), PUT (to update data), DELETE (to remove data), and others, each serving a specific purpose in the communication process.
+
+HTTP status codes are three-digit numbers returned by the server to indicate the result of the client's request. Common status codes include:
+- 200 OK: The request was successful, and the server returned the requested data.
+- 404 Not Found: The requested resource could not be found on the server.
+- 500 Internal Server Error: The server encountered an unexpected condition that prevented it from fulfilling the request.
+
+HTTPS (Hypertext Transfer Protocol Secure) is an extension of HTTP that adds a layer of security by encrypting the data transmitted between the client and server using SSL/TLS protocols. This ensures that sensitive information, such as login credentials and payment details, is protected from eavesdropping and tampering during transmission.
+
+Request and response cycle in web applications involves the following steps:
+1. The client (browser) sends an HTTP request to the server.
+2. The server processes the request, which may involve querying a database, performing calculations, or executing business logic.
+3. The server generates an HTTP response containing the requested data or an error message.
+4. The server sends the HTTP response back to the client.
+5. The client receives the response and renders the content for the user to view and interact with.
+
+
+APIs (Application Programming Interfaces) are sets of rules and protocols that allow different software applications to communicate with each other. APIs enable developers to access specific features or data from another application, service, or platform without needing to understand the underlying code or infrastructure.
+
+Domain:
+    In the context of web applications, a domain is a human-readable address that users can type into their browsers to access a website. Domains are part of the URL (Uniform Resource Locator) and are used to identify and locate resources on the internet. For example, in the URL "https://www.example.com", "example.com" is the domain.
+
+IP Address:
+    An IP (Internet Protocol) address is a unique numerical identifier assigned to each device connected to a network, allowing it to communicate with other devices. In the context of web applications, an IP address is used to identify the server hosting a website. For example, when a user types a domain name into their browser, the DNS translates that domain into its corresponding IP address so that the browser can connect to the correct server.
+
+DNS (Domain Name System):
+    The Domain Name System (DNS) is a hierarchical system that translates human-readable domain names into IP addresses. When a user enters a domain name in their browser, the DNS resolves it to the corresponding IP address, allowing the browser to connect to the appropriate server. DNS servers are distributed across the internet and work together to provide fast and reliable domain resolution.
+
+Hosting:
+    Hosting refers to the service of providing storage space and access for websites on a server. Web hosting companies offer various hosting plans that allow individuals and organizations to make their websites accessible on the internet. Hosting can be shared, dedicated, or cloud-based, depending on the needs of the website owner.
+
+static vs dynamic websites:
+Static websites consist of fixed content that does not change unless manually updated by the developer. They are typically built using HTML, CSS, and sometimes JavaScript. Static websites are fast and simple to host but lack interactivity and personalization.
+
+Dynamic websites, on the other hand, generate content on-the-fly based on user interactions or data from a database. They are typically built using server-side programming languages like Python, PHP, or Node.js, along with client-side technologies like JavaScript. Dynamic websites are more complex to develop and host but offer greater flexibility and user engagement.
+
+Terminal commands:
+1. `ls`: Lists the files and directories in the current directory.
+
+2. `cd <directory>`: Changes the current directory to the specified directory.
+   2.1 `cd ..`: Moves up one directory level.
+   2.2 `cd ~`: Moves to the home directory.
+
+3. `pwd`: Displays the current working directory.
+
+4. `mkdir <directory>`: Creates a new directory with the specified name.
+
+5. `rm <file>`: Removes the specified file.
+
+6. `rmdir <directory>`: Removes the specified empty directory.
+
+7. `cp <source> <destination>`: Copies a file or directory from the source to the destination.
+
+8. `mv <source> <destination>`: Moves or renames a file or directory from the source to the destination.
+
+*********************************************
+Git is a distributed version control system that allows multiple developers to work on a project simultaneously. It tracks changes to files and enables collaboration by allowing developers to merge their work.
+
+Git commands:
+1. `git init`: Initializes a new Git repository in the current directory.
+
+2. `git clone <repository_url>`: Creates a copy of an existing Git repository from a remote source.
+
+3. `git add <file>`: Stages changes to a file for the next commit.
+
+4. `git commit -m "<message>"`: Commits the staged changes with a descriptive message.
+
+5. `git status`: Displays the current status of the repository, including staged and unstaged changes.
+
+6. `git log`: Shows the commit history of the repository.
+
+7. `git branch`: Lists all branches in the repository and indicates the current branch.
+
+8. `git checkout <branch>`: Switches to the specified branch.
+
+9. `git merge <branch>`: Merges the specified branch into the current branch.
+
+10. `git pull`: Fetches and merges changes from a remote repository into the current branch.
+11. `git push`: Uploads local commits to a remote repository.
+
+12. `git remote add <name> <url>`: Adds a new remote repository with the specified name and URL.
+
+13. `git fetch`: Retrieves updates from a remote repository without merging them into the current branch.
+
+
+Github :
+GitHub is a web-based platform that provides hosting for Git repositories. It allows developers to collaborate on projects, manage version control, and share code with others. GitHub offers features such as pull requests, issue tracking, and project management tools, making it a popular choice for open-source and private software development.
+
+
+Git Workflow:
+Working Directory
+       ↓
+     git add
+       ↓
+Staging Area
+       ↓
+   git commit
+       ↓
+Local Repository
+       ↓
+    git push
+       ↓
+    GitHub
+
+Configure Git:
+1. `git config --global user.name "Your Name"`: Sets the global username for Git commits.
+2. `git config --global user.email "your.email@example.com"`: Sets the global email for Git commits.
+
+Create project
+     ↓
+git init
+     ↓
+git add .
+     ↓
+git commit
+     ↓
+Create GitHub repository
+     ↓
+git remote add origin URL
+     ↓
+git branch -M main
+     ↓
+git push
+
+
+
+
+CLASS WORK Questions:
+
+1.Create a project using terminal.
+2.Open it in VS Code.
+3.Create HTML/CSS/JS files.
+4.Run/test the project.
+5.Inspect it using Chrome DevTools.
+6.Initialize Git.
+7.Check Git status.
+8.Stage files.
+9.Create a commit.
+10.Modify a file.
+11.Check changes using git diff.
+12.Create a second commit.
+13.Create a GitHub repository.
+14.Connect local repository to GitHub.
+15.Push the project.
+16.Make changes in the cloned repository.
+17.Make changes.
+18.Commit and push again.
+19.Pull changes from GitHub.
+
+
+
+
+Home work Questions:
+1. What is software and what are its two main types?
+2. Explain the components of a web application.
+3. Describe the process that occurs when a user opens a website.
+4. What is the client-server architecture and how does it work?
+5. What is the difference between HTTP and HTTPS?
+6. Explain the request and response cycle in web applications.
+7. What are APIs and how do they facilitate communication between software applications?
+8. Define domain, IP address, DNS, and hosting in the context of web applications.
+9. Differentiate between static and dynamic websites.
+10. List and explain some common terminal commands used in software development.
+11. What is Git and how does it help in version control?
+12. Explain the Git workflow and the steps involved in configuring Git for a project.
+13. What are some common Git commands and their functions in managing a Git repository?
+14. How do you create a new project, initialize a Git repository, and push it to GitHub?
+
+
+Topics to Revise:
+1. Web Development Fund
+amentals
+2. Client–Server Architecture
+3. HTTP & HTTPS
+4. Request–Response Lifecycle
+5. APIs
+6. DNS, Domain & Hosting
+7. Static vs Dynamic Websites
+8. Development Environment
+9. VS Code & Developer Tools
+10. Node.js & npm
+11. Terminal & Command Line
+12. Version Control
+13. Git Fundamentals
+14. Git Workflow
+15. GitHub & Remote Repositories
+16. Git Commands
+17. Complete Git & GitHub Workflow

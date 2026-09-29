@@ -1,0 +1,1130 @@
+/*
+Grouping Selectors:
+h1, h2, h3 {
+    color: blue;
+    font-family: Arial, sans-serif;
+}
+
+descendant Selector:
+
+A descendant selector targets elements that are nested within a specific parent element. For example, if you want to style all <p> elements that are inside a <div>, you can use the following CSS:
+
+div p {
+    color: green;
+    font-size: 16px;
+}
+
+it can also work throgh multiple levels
+
+<div>
+    <section>
+        <p>Hello</p>
+    </section>
+</div>
+
+div p {
+    color: green;
+    font-size: 16px;
+}
+
+
+child Selector:
+div > p {
+    color: red;
+    font-size: 18px;
+}
+selects only the direct child <p> elements of a <div>.
+
+sibling Selector:
+Adjacent sibling selector (+): This selector targets an element that is immediately preceded by a specific sibling element
+
+<h2>Heading</h2>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+
+h2 + p {
+    color: purple;
+    font-size: 14px;
+}
+
+general sibling selector (~): This selector targets all sibling elements that follow a specific element, regardless of their position.
+
+<h2>Heading</h2>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<p>Paragraph 3</p>
+
+h2 ~ p {
+    color: orange;
+    font-size: 12px;
+}
+
+Attribute Selectors:
+Attribute selectors allow you to target elements based on their attributes and attribute values. Here are some examples
+
+<input type="text">
+<input type="password">
+<input type="email">
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+Cascade
+
+This is one of the most important concepts in CSS.
+
+The word cascade means that when multiple CSS rules apply to the same element, the browser determines which rule should win.
+
+<h1>Hello</h1>
+
+h1 {
+color: red;
+}
+
+h1 {
+color: blue;
+}
+
+What color will it be?
+
+Blue.
+
+Because both have the same specificity and the later rule wins.
+
+
+specificity :
+Specificity is a measure of how specific a CSS selector is. It determines which styles are applied to an element when multiple rules could apply. The more specific a selector, the higher its specificity value, and the more likely it is to override other styles.
+
+<p id="myParagraph" class="highlight">Hello, world!</p>
+
+p {
+    color: blue;
+}
+.highlight{
+    color: red;
+}
+#myParagraph {
+    color: green;
+}
+Question: What color will the text be?
+
+The specificity hierarchy is as follows:
+1. Inline styles (e.g., style="color: yellow;") have the highest specificity
+2. IDs (e.g., #myParagraph) have the second-highest specificity
+3. Classes, attributes, and pseudo-classes (e.g., .highlight, [type="text"], :hover) have the third-highest specificity
+4. Elements and pseudo-elements (e.g., p, :before) have the lowest specificity
+
+
+
+Universal
+↓
+Element
+↓
+Class / Attribute / Pseudo-class
+↓
+ID
+↓
+!important
+
+
+Inheritance:
+Inheritance is a fundamental concept in CSS that allows certain properties to be passed down from parent elements to their child elements. This means that if a parent element has a specific style applied to it, its child elements can inherit that style unless they have their own styles defined.
+
+<div>
+    <p>Hello</p>
+</div>
+
+div {
+    color: blue;
+}
+
+The <p> can also become red because color is an inheritable property.
+
+Not every CSS property is inherited.
+For example, margin, padding, border, etc. generally don't inherit automatically.
+
+
+source order:
+When multiple CSS rules apply to the same element, the order in which they are defined in the stylesheet can affect which rule takes precedence. If two rules have the same specificity, the one that appears later in the CSS will override the earlier one.
+
+p {
+color: red;
+}
+
+p {
+color: blue;
+}
+
+Then the text will be blue because the second rule comes after the first one in the stylesheet.
+
+Important point to note is that source order only matters when the competing rules have comparable specificity and importance. If one rule has higher specificity or uses !important, it will take precedence regardless of its position in the stylesheet.:
+
+
+<p class="text" id="special">
+    Hello
+</p>
+
+p {
+color: red;
+}
+
+.text {
+color: blue;
+}
+
+#special {
+color: green;
+}
+
+p {
+color: orange;
+}
+
+What color will the text be?
+
+
+The most important thing to remember
+
+When CSS is not behaving as expected, think in this order:
+
+Selector → Cascade → Specificity → Inheritance → Source Order → DevTools
+
+
+
+Font Families:
+
+A font determines how charactes appear on the screen.
+
+font-family: Arial, sans-serif;
+
+serif
+sans-serif
+monospace
+cursive
+fantasy
+
+Fallback fonts:
+
+When specifying a font-family, it's a good practice to provide multiple font options as a fallback mechanism. This ensures that if the preferred font is not available on the user's device, the browser can use an alternative font from the list.
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+Try Arial first. If Arial is unavailable, try Helvetica. If that is also unavailable, use any available sans-serif font.
+
+Web Fonts:
+Sometimes we want fonts that aren't installed on the user's computer.
+We can use web fonts.
+A popular service is Google Fonts.
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+body {
+font-family: "Poppins", sans-serif;
+}
+
+Website
+↓
+Requests font
+↓
+Font server
+↓
+Browser downloads font
+↓
+Text displayed using that font
+
+
+Important practical point
+Using external fonts can affect:
+Page loading
+Performance
+Privacy
+Network dependency
+So fallback fonts are still important.
+
+
+PART 3 --FONT SIZE
+
+font-size: 16px;
+
+Different units for font size:
+
+px: Pixels are a fixed unit of measurement. They provide precise control over the size of text, but they do not scale based on user preferences or device settings.
+
+em: The em unit is relative to the font size of the parent element. For example, if the parent element has a font size of 16px, then 1em would be equal to 16px. Using em units allows for scalable and responsive typography.
+
+%: Percentages are also relative to the font size of the parent element. For example, if the parent element has a font size of 16px, then 100% would be equal to 16px. Percentages can be useful for creating flexible layouts and responsive designs.
+
+relative to the inherited/default font size
+
+rem: The rem unit is relative to the font size of the root element (usually the <html> element). For example, if the root element has a font size of 16px, then 1rem would be equal to 16px. Using rem units allows for consistent sizing across the entire document.
+
+
+Part 4 -- FONT WEIGHT
+font-weight: 400; /* Normal weight */
+font-weight: 700; /* Bold weight */
+
+
+part 5 -- FONT STYLE
+font-style: normal; /* Normal style */
+font-style: italic; /* Italic style */
+
+p {
+font-style: italic;
+font-weight: bold;
+font-size: 20px;
+font-family: Arial;
+}
+
+p {
+font: italic bold 20px Arial, sans-serif;
+}
+
+For beginners, I recommend teaching the individual properties first and shorthand later.
+
+part 6 -- LINE HEIGHT
+line-height: 1.5; /* 1.5 times the font size  */
+
+<p>
+    CSS is used to style webpages.
+    It controls colors, fonts, spacing,
+    layout and many other visual properties.
+</p>
+
+p{
+    
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+Increasing line-height makes paragraphs easier to read.
+
+For normal body text, values around 1.4–1.8 are often a useful starting point, but the correct value depends on the font
+and design.
+
+part 7 -- TEXT ALIGNMENT
+text-align: left; /* Aligns text to the left */
+
+text-align: justify; /* Aligns text to both the left and right edges, creating a clean block of text. This is often used in newspapers and books.
+*/
+
+part 8 -- TEXT decoration
+text-decoration: none; /* Removes underline from links */
+text-decoration: underline; /* Adds underline to links */
+
+part 9 -- TEXT TRANSFORM
+text-transform: uppercase; /* Converts text to uppercase */
+text-transform: lowercase; /* Converts text to lowercase */
+text-transform: capitalize; /* Capitalizes the first letter of each word */
+
+part 10 -- TEXT Spacing
+letter-spacing: 2px; /* Increases the space between letters */
+word-spacing: 4px; /* Increases the space between words */
+
+/*
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            font-style: normal;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            word-spacing: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Web Development</h1>
+
+    <p>
+        Web development is the process of creating websites
+        and web applications using technologies such as HTML,
+        CSS and JavaScript.
+    </p>
+
+</body>
+
+</html>
+*/
+
+part 11 -- color
+color: red; /* Sets the text color to red */
+color: blue; /* Sets the text color to blue */
+
+Hex colors: #FF0000 (red), #0000FF (blue)
+hex generally uses #RRGGBB format, where RR, GG, and BB are two-digit hexadecimal values representing the red, green, and blue components of the color.
+00--0
+FF--255
+
+
+RGB colors: rgb(255, 0, 0) (red), rgb(0, 0, 255) (blue)
+
+
+RGBA colors: rgba(255, 0, 0, 0.5) (red with 50% opacity), rgba(0, 0, 255, 0.5) (blue with 50% opacity) 
+
+A---ALPHA---REPERSENTS TRANSPARENCY
+0--fully transparent
+1--fully opaque
+
+opacity: 0.5; /* Sets the opacity of the element to 50% */
+0--invisible
+1--fully visible
+
+rgba() can make the specific color transparent.
+
+opacity affects the entire element, including its contents.
+
+part 12 -- BACKGROUND COLOR
+background-color: yellow; /* Sets the background color to yellow */
+
+background-image: url('image.jpg'); /* Sets a background image */
+
+The URL in CSS is normally resolved relative to the CSS file, not the HTML file.
+
+background-repeat: no-repeat; /* Prevents the background image from repeating */
+
+background-position: center; /* Centers the background image */
+
+background-size: cover; /* Scales the background image to cover the entire element */
+
+contain :Cover the entire container, even if some part of the image has to be cropped.
+
+
+GRADIENTS
+linear-gradient(to right, red, blue); /* Creates a linear gradient from red to blue */
+
+part 13 -- css custom properties
+
+css variables:
+Suppose your website uses the same blue everywhere:
+
+h1 {
+color: #2563eb;
+}
+
+button {
+background-color: #2563eb;
+}
+
+a {
+color: #2563eb;
+}
+
+What if the company changes its primary color?
+
+You have to change it everywhere.
+
+CSS custom properties solve this.
+
+creating css variable:
+syntax:
+--variable-name:value;
+
+:root {
+--primary-color: #2563eb;
+}
+
+h1 {
+color: var(--primary-color);
+}
+
+:root represents the root element of the document, normally <html>.
+
+Variables defined there are available throughout the document unless overridden by a more local definition
+
+Local CSS Variables
+
+Variables don't have to be global.
+
+Example:
+
+.card {
+--card-padding: 20px;
+
+padding: var(--card-padding);
+}
+
+The variable is available within the .card element and its descendants
+
+What is Typography?
+
+Typography means the art and technique of arranging and styling text so that it is easy to read, understandable, and
+visually attractive.
+
+Typography
+It includes:
+
+Font
++
+Font Size
++
+Font Weight
++
+Line Height
++
+Alignment
++
+Spacing
++
+Text Decoration
++
+Text Transformation
+=
+Typography
+
+
+:focus Pseudo-Class
+
+CSS provides the :focus pseudo-class.
+
+Syntax:
+
+selector:focus {
+property: value;
+}
+
+What Is outline?
+
+outline creates a line around an element.
+
+A pseudo-class is a special keyword added to a CSS selector to select an element when it is in a particular state or
+condition.
+
+Viewport : the browser's viewport is the area of the window in which web content can be seen
+
+viewport height:it is based on the height of the viewport. 1vh is equal to 1% of the viewport's height. For example, if the viewport height is 800 pixels, then 1vh would be equal to 8 pixels.
+
+viewport width:it is based on the width of the viewport. 1vw is equal to 1% of the viewport's width. For example, if the viewport width is 1200 pixels, then 1vw would be equal to 12 pixels.
+
+unsplash.com use this website to get image link for background image
+
+
+Box model:
+The box model is a fundamental concept in CSS that describes how elements are rendered on a web page. It consists of several components that define the space occupied by an element, including its content, padding, border, and margin.
+
+box-sizing tells the browser how to calculate the total width and height of an element.
+
+There are two important values:
+
+content-box — default
+border-box — commonly preferred for layouts
+
+1. box-sizing: content-box (default)
+In this model, the width and height of an element are calculated based on the content area only. Padding and border are added outside the specified width and height, which can lead to unexpected layout issues.
+
+Content = 200px
+Left padding = 20px
+Right padding = 20px
+Left border = 5px
+Right border = 5px
+
+Total width
+= 200 + 20 + 20 + 5 + 5
+= 250px
+
+Total Width =
+width + left padding + right padding
++ left border + right border
+
+2. box-sizing: border-box
+In this model, the width and height of an element include the content, padding, and border. This makes it easier to manage layouts, as the total width and height of an element remain consistent regardless of padding and border.
+
+width = content + padding + border
+
+
+****************************************************
+width: 200px;
+width:it controls the horizontal size of an element. It can be specified in various units, such as pixels (px), percentages (%), ems (em), or viewport units (vw).
+
+height: 100px;
+height:it controls the vertical size of an element. Like width, it can be specified in different units, such as pixels (px), percentages (%), ems (em), or viewport units (vh).
+
+Width and Height Don't Always Mean Total Size
+
+height:auto;
+when you set the height of an element to auto, it means that the height will be determined by the content inside the element. The element will expand or contract vertically based on the amount of content it contains.
+
+min-width: 100px;
+min-width:it sets the minimum width that an element can have. The element will not shrink below this width, even if the content inside it is smaller. This is useful for ensuring that elements maintain a certain level of visibility and usability.
+
+This prevents the element from becoming too small.
+
+max-width: 500px;
+max-width:it sets the maximum width that an element can have. The element will not expand beyond this width, even if the content inside it is larger. This is useful for controlling the maximum size of elements and ensuring they don't become too wide on large screens.
+
+This keeps text and content from becoming unnecessarily wide
+
+min-height: 100px;
+min-height:it sets the minimum height that an element can have. The element will not shrink below this height, even if the content inside it is smaller. This is useful for maintaining a consistent layout and ensuring that elements have enough vertical space.
+
+max-height: 500px;
+max-height:it sets the maximum height that an element can have. The element will not expand beyond this height, even if the content inside it is larger. This is useful for controlling the maximum size of elements and preventing them from taking up too much vertical space.
+
+What happens if content is bigger than its box?
+When the content inside an element exceeds the dimensions of its box (width and height), it can lead to overflow. By default, the content will overflow and may be clipped or hidden, depending on the CSS properties applied to the element.
+
+overflow: visible; /* Default behavior, content overflows and is visible */
+overflow: hidden; /* Content that exceeds the box dimensions is clipped and hidden */
+overflow: scroll; /* Adds scrollbars to the element, allowing users to scroll through the content */
+overflow: auto; /* Adds scrollbars only when necessary, based on the content size */
+
+.box {
+height: auto;
+min-height: 200px;
+max-height: 500px;
+overflow: auto;
+}
+
+Meaning:
+
+"Let the box grow with content, but keep it between 200px and 500px. If content exceeds 500px, allow scrolling."
+
+Display Property:
+The display property in CSS determines how an element is rendered on the web page. It controls the layout behavior of elements and how they interact with other elements in the document flow. The display property can take various values, each affecting the element's rendering differently.
+
+display: block; /* The element is rendered as a block-level element, taking up the full width available and starting on a new line. */
+display: inline; /* The element is rendered as an inline element, flowing within the text and not starting on a new line. */
+display: inline-block; /* The element is rendered as an inline-level block container, allowing it to have block-level properties while still flowing inline with text. */
+display: none; /* The element is not rendered at all, and it does not take up any space in the layout. This is often used to hide elements dynamically. */
+
+block: A block-level element that takes up the full width available and starts on a new line.
+
+A block element can have:
+
+width
+height
+margin
+padding
+
+inline: An inline element that flows within the text and does not start on a new line. It only takes up as much width as necessary for its content.
+
+They don't automatically start new lines.
+
+inline-block: An inline-level block container that allows it to have block-level properties while still flowing inline with text. It can have width and height, but it does not start on a new line.
+
+It behaves like an inline element from the outside, but like a block-level box internally.
+
+That means:
+
+It can sit beside other elements.
+width works.
+height works.
+padding works.
+margin works.
+
+display: none: The element is not rendered at all, and it does not take up any space in the layout. This is often used to hide elements dynamically.
+
+display: none vs visibility: hidden
+display: none
+.box {
+display: none;
+}
+
+The element:
+is not displayed
+occupies no layout space
+
+
+visibility: hidden
+.box {
+visibility: hidden;
+}
+
+The element becomes invisible, but its layout space remains.
+
+display: none
+→ element disappears + space disappears
+
+visibility: hidden
+→ element disappears + space remains
+
+psuedo-classes like :hover, :focus, and :active can be used to change the display property of an element dynamically based on user interactions.
+
+:link: This pseudo-class targets anchor (<a>) elements that have not been visited by the user. It allows you to style unvisited links differently from visited ones.
+
+:visited: This pseudo-class targets anchor (<a>) elements that have been visited by the user. It allows you to style visited links differently from unvisited ones.
+
+:hover: This pseudo-class targets elements when the user hovers their mouse pointer over them. It is commonly used to create interactive effects, such as changing the color or background of buttons or links when hovered.
+
+:hover Is Not Only for Links
+
+:active: This pseudo-class targets elements when they are in an active state, such as when a button is being clicked or a link is being activated. It allows you to style elements differently during user interactions.
+
+:focus: This pseudo-class targets elements that have received focus, such as when a user clicks on an input field or navigates to it using the keyboard. It allows you to style elements differently when they are focused.
+
+:first-child: This pseudo-class targets the first child element of a parent. It allows you to apply styles specifically to the first element within a container.
+
+:last-child: This pseudo-class targets the last child element of a parent. It allows you to apply styles specifically to the last element within a container.
+
+:nth-child(n): This pseudo-class targets elements based on their position within a parent, where n can be a number, keyword, or formula. It allows you to apply styles to specific child elements based on their order.
+
+an input can be:
+
+Required
+Checked
+Disabled
+Invalid
+
+
+
+------------------Flexbox---------------
+layout model in CSS that allows you to create flexible and responsive layouts. It provides a more efficient way to align and distribute space among items in a container, even when their size is unknown or dynamic.
+
+method of design a layout:
+1. Flexbox(stable)
+2. Grid (advanced and fast growing but not stable)
+
+1.flexbox:
+flexbox is a one-dimensional layout model, meaning it deals with either rows or columns at a time. It is particularly useful for creating layouts where items need to be aligned and distributed within a container.
+
+display: flex; /* This property is applied to the parent container to enable flexbox layout. It establishes a flex formatting context for its children. */
+
+flex container: The parent element that has display: flex applied to it is called the flex container. It contains one or more flex items.
+
+flex items:All HTML elements that are direct children of a flex container become flex items. These items can be manipulated and arranged using various flexbox properties.
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+    </div>
+
+Irrespective of inline or block, all direct children of a flex container become flex items.
+
+How to Display Flex items in vertical direction?
+
+To display flex items in a vertical direction, you can use the flex-direction property on the flex container. By default, flex items are laid out in a row (horizontal direction). To change the direction to vertical, you can set flex-direction to column.
+
+
+Two axes of flexbox:
+1. Main Axis: The main axis is the primary axis along which flex items are laid out. By default, the main axis runs horizontally from left to right (row direction). However, you can change the main axis direction using the flex-direction property.
+
+flex-direction: row; /* Default value, items are laid out in a horizontal row 
+main axis in horizontal direction */
+
+
+flex-direction: column; /* Items are laid out in a vertical column */
+main axis in vertical direction */
+
+2. Cross Axis: The cross axis is the axis perpendicular to the main axis. Its direction depends on the main axis direction.
+
+How to Align Flex Items Along the Main Axis?
+
+justify-content: This property is used to align flex items along the main axis. It allows you to control the distribution of space between and around flex items.
+    its values are:
+    flex-start: Aligns items to the start of the main axis.
+    flex-end: Aligns items to the end of the main axis.
+    center: Centers items along the main axis.
+    space-between: Distributes items evenly with equal space between them.
+    space-around: Distributes items evenly with equal space around them.
+
+by default, the flex items will stretch along the cross axis to fill the container's height (if the main axis is horizontal) or width (if the main axis is vertical). This behavior can be modified using the align-items property.
+
+how to Align Flex Items Along the Cross Axis?
+align-items: This property is used to align flex items along the cross axis. It allows you to control the alignment of items perpendicular to the main axis.
+
+
+    its values are:
+    flex-start: Aligns items to the start of the cross axis.
+    flex-end: Aligns items to the end of the cross axis.
+    center: Centers items along the cross axis.
+    stretch: Stretches items to fill the container along the cross axis (default behavior).
+    baseline: Aligns items based on their text baseline.
+
+    flex-wrap: This property allows you to control whether flex items should wrap onto multiple lines when they exceed the container's width (or height, depending on the flex-direction). By default, flex items are laid out in a single line.
+    its values are:
+    nowrap: Flex items are laid out in a single line (default).
+    wrap: Flex items wrap onto multiple lines as needed.
+    wrap-reverse: Flex items wrap onto multiple lines in reverse order.
+
+quick image
+
+Align self: The align self property specifies the alignment of an individual flex item along the cross axis.
+    its values are:
+    auto: Uses the align-items value for the flex container.
+
+    the align-items value is applied to the individual item unless overridden by align-self.
+
+    flex-start: Aligns the item to the start of the cross axis.
+    flex-end: Aligns the item to the end of the cross axis.
+    center: Centers the item along the cross axis.
+    stretch: Stretches the item to fill the container along the cross axis.
+    baseline: Aligns the item based on its text baseline.
+
+How to change the order of flex items?
+
+order: This property allows you to change the order of flex items within a flex container. By default, flex items are displayed in the order they appear in the HTML source code. However, you can use the order property to rearrange them visually without changing the HTML structure.
+
+the order property specifies the order of a flex item relative to other flex items in the same container. It accepts integer values, where lower values are displayed first and higher values are displayed later.
+    its values are:
+    0: Default order (items appear in the order they are defined in the HTML).
+    1, 2, 3, ...: Higher values will be displayed after items with lower values.
+    -1, -2, -3, ...: Negative values can be used to display items before those with default or positive order values.
+
+
+ https://flexboxfroggy.com/
+
+ flex box sizing:
+ flex items can grow and shrink to fill available space in a flex container. The flex property is a shorthand for three properties: flex-grow, flex-shrink, and flex-basis.
+
+ 1. flex-grow: This property specifies how much a flex item should grow relative to the other flex items in the container when there is extra space available. It accepts a unitless value, where higher values indicate that the item should grow more compared to others.
+ 2. flex-shrink: This property specifies how much a flex item should shrink relative to the other flex items in the container when there is not enough space available. It also accepts a unitless value, where higher values indicate that the item should shrink more compared to others.
+ 3. flex-basis: This property specifies the initial size of a flex item before any growing or shrinking occurs. It can be set to a specific length (e.g., pixels, percentages) or to auto, which means the item will size itself based on its content.
+
+ gap: The gap property is used to define the spacing between flex items in a flex container. It allows you to create consistent gaps between items without needing to use margins on individual items. The gap property can be set to a specific length (e.g., pixels, percentages) or to auto, which means the gap will be determined by the browser based on the available space.
+
+
+ flex:1;
+flex is a shorthand property for three properties:
+
+flex-grow
+flex-shrink
+flex-basis
+
+So:
+
+.item {
+flex: 1;
+}
+
+is commonly interpreted as:
+
+.item {
+flex-grow: 1;
+flex-shrink: 1;
+flex-basis: 0%;
+}
+
+So when you write:
+
+flex: 1;
+
+you're essentially saying:
+
+"Let this item grow and shrink, and start the flexible sizing calculation from a zero flex basis."
+
+ gap:20px 30px;
+10px → row gap
+20px → column gap
+
+align-content: This property is used to align flex lines (rows or columns) within a flex container when there are multiple lines of flex items. It allows you to control the distribution of space between and around the flex lines along the cross axis.
+
+    its values are:
+    flex-start: Aligns flex lines to the start of the cross axis.
+    flex-end: Aligns flex lines to the end of the cross axis.
+    center: Centers flex lines along the cross axis.
+    space-between: Distributes flex lines evenly with equal space between them.
+    space-around: Distributes flex lines evenly with equal space around them.
+    stretch: Stretches flex lines to fill the container along the cross axis (default behavior).
+
+    align-items
+    → alignment of items
+    
+    align-content
+    → alignment of multiple lines
+
+shorthand flex property:
+flex: grow shrink basis;
+
+
+----------Positioning in CSS-----------
+positioning: Css positioning is a way to position html elements anywhere within the document to create complex layouts.
+
+position: property specifies how an element is positioned in the document. It can take several values, each affecting the element's positioning behavior differently.
+
+its values are:
+static: This is the default positioning for all elements. Elements with static positioning are positioned according to the normal flow of the document. They are not affected by top, bottom, left, or right properties.
+
+relative: Elements with relative positioning are positioned relative to their normal position in the document flow. You can use the top, bottom, left, and right properties to adjust their position, but they still occupy space in the layout.
+
+similar to static, but you can move it around using top, bottom, left, right properties.
+
+with relative positioning, the element's original position is preserved, and it can be shifted without affecting the layout of other elements.
+
+with relative position value,if we specify both top and bottom, then bottom will be ignored. Similarly, if we specify both left and right, then right will be ignored.
+
+
+fixed: Elements with fixed positioning are positioned relative to the viewport (the browser window). They remain in the same place even when the page is scrolled.
+   .Removed from the normal document flow, so they do not affect the layout of other elements.
+   .when we use fixed position value, the element shrinks and takes only the space required for its content. It does not expand to fill the entire width of the viewport unless explicitly specified.
+   .we can use top, bottom, left, and right properties to position the element anywhere within the viewport.
+
+absolute: but it is positioned relative to its nearest positioned ancestor (an ancestor with a position value other than static). If no such ancestor exists, it will be positioned relative to the initial containing block (usually the <html> element).
+   .Removed from the normal document flow, so they do not affect the layout of other elements   
+
+Positioned ancestor: An ancestor element that has a position value other than static (e.g., relative, absolute, fixed, or sticky).
+
+z-index: The z-index property controls the vertical stacking order of overlapped elements. Elements with a higher z-index value will appear in front of elements with a lower z-index value. It only works on positioned elements (those with position values other than static).
+    its values are:
+    auto: The default value, which means the element will follow the stacking order based on its position in the HTML and its parent elements.
+    integer values: You can specify positive or negative integer values to control the stacking order. Higher values will bring the element to the front, while lower values will send it to the back.
+
+sticky: Elements with sticky positioning are positioned based on the user's scroll position. They toggle between relative and fixed positioning depending on the scroll position. A sticky element "sticks" to a specified position within its parent container when the user scrolls past it, but it will return to its normal flow when the user scrolls back up.
+   .A sticky element is treated as relative until it reaches a defined threshold (e.g., top: 0), at which point it becomes fixed and remains in that position until the user scrolls back up.
+   .To use sticky positioning, you need to set the position property to sticky and specify at least one of the top, bottom, left, or right properties to define the threshold at which the element becomes fixed.
+
+https://flukeout.github.io/
+
+-----------Grid-----------------------
+css grid is a two-dimensional layout system that allows you to create complex and responsive grid-based designs. It provides a way to define rows and columns, and place items within those rows and columns.
+  .with the css grid, we can place the elements in a specific row and column
+  .css grid is generally used for page layouts and complex designs
+
+  css flexbox is generally used for alignment of elements
+
+Basic Terminology of Grid:
+   1.rows
+   2.columns
+
+The horizontal or vertical line that divides the grid into rows or columns.
+    * The horizontal line is called row line
+    * The vertical line is called column line
+Grid cell:The space between two adjacent row lines and adjacent column lines
+Grid Track: The space between two adjacent Grid lines, like entire rows or columns of the grid
+Grid Area: The space Surrounded by any four grid lines and can consist of multiple grid cells
+
+Best Practice
+  For any application,
+  1. Identify the layout
+  2. Identify the number of Rows and Columns
+  3.Implement CSS Properties
+
+The display:grid has to be given to the element that forms the grid container. All direct children of the grid container become grid items.
+
+Implict Grid: By default, css grid creates a single column layout,and will create rows as needed, based on the number of children
+
+this is known as an implicit grid,since we aren't explicitly defining any structure (no of rows and columns)
+
+Implicit grids are dynamic.
+Rows will be added and removed based on the number of children
+
+grid-template-columns:this property is used to define the number and width of columns
+grid-template-rows:this property is used to define the number and height of rows
+
+syntax:
+.class{
+    display:grid;
+    grid-template-columns:33% 33% 33%;
+    grid-template-rows: auto;
+
+}
+gap:this property adds a fixed amount of space between all the rows and columns within Grid
+
+fr unit: Grid introduced an additional unit called fraction (fr) which helps us to create flexible grid rows/columns
+
+repeat():
+repeat() function is shorthand for defining multiple rows/columns with same width/height
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: repeat(3,1fr);
+
+grid-column-start, grid-column-end, grid-row-start, grid-row-end: These properties are used to specify the starting and ending positions of a grid item within the grid. They allow you to control how many rows or columns an item spans.
+
+grid-column-start: Specifies the starting column line for a grid item.
+grid-column-end: Specifies the ending column line for a grid item.
+
+grid-row-start: Specifies the starting row line for a grid item.
+grid-row-end: Specifies the ending row line for a grid item.
+
+grid-row: This shorthand property allows you to specify both the starting and ending row lines for a grid item in a single declaration.
+grid-column: This shorthand property allows you to specify both the starting and ending column lines for a grid item in a single declaration.
+grid-row: 1 / 3; /* Spans from row line 1 to row line 3 */
+grid-column: 2 / 4; /* Spans from column line 2 to column line 4 */
+
+
+grid-column
+This property determines a grid item's start and end positions along the column axis. Here are different ways to use it:
+
+Single line number: grid-column: 2; places the item starting at the second vertical grid line.
+Span keyword: grid-column: span 3; extends the item across three column tracks.
+Line number range: grid-column: 1 / 3; starts the item at the first line and ends it before the third line.
+
+grid-row
+Similar to grid-column, this property defines where the grid item will sit along the row axis:
+
+Single line number: grid-row: 1; positions the item at the first horizontal grid line.
+Span keyword: grid-row: span 2; makes the item cover two row tracks.
+Line number range: grid-row: 2 / 4; sets the start and end of an item between specified row lines.
+
+How to use grid or grid-gap
+To apply spacing between grid items, set the gap property on the grid container element. This property can accept either
+one or two values:
+
+When one value is specified, it applies uniformly to both rows and columns.
+Two values allow individual specification for rows and columns respectively (first for rows, second for columns).
+.grid-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px; /* Sets a 20px gap for both rows and columns */
+}
+Alternatively, grid-row-gap and grid-column-gap can be used to set row and column gaps independently.
+
+.grid-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-row-gap: 20px; /* Sets a 20px gap between the rows */
+grid-column-gap: 10px; /* Sets a 10px gap between the columns */
+}
+
+Aligning and Justifying Items in the Grid
+
+CSS Grid provides powerful control over the alignment of items within your grid, which can be managed using
+justify-items, align-items, justify-content, and align-content. These properties influence how content fits within both
+the grid container and individual grid items.
+
+justify-items
+This property aligns grid items along the inline (row) axis. By default, it is set to stretch, which causes items to
+fill the entire cell width. However, it can be set to start, end, center, or stretch to achieve different effects
+
+.container {
+display: grid;
+justify-items: start; /* Aligns items to the start of each cell */
+}
+
+align-items
+Similar to justify-items, but for the block (column) axis. It determines vertical placement within grid cells. Set its
+value to start, end, center, or stretch.
+
+.container {
+display: grid;
+align-items: end; /* Aligns items to the end of each cell vertically */
+}
+
+justify-content
+This adjusts the position of the grid itself within the container along the inline axis when there is extra space
+outside of explicit tracks. Options include start, end, center, stretch, space-around, space-between, and space-evenly.
+
+.container {
+display: grid;
+width: 100%;
+justify-content: space-between; /* Distributes extra space between columns */
+}
+
+align-content
+Operates like justify-content, but on the block axis. This property comes into play when there's more space in the grid
+container than required by the tracks.
+
+.container {
+display: grid;
+height: 400px;
+align-content: center; /* Centers the rows vertically within the container */
+}
+
+justify-items
+Simple definition
+
+justify-items controls the horizontal position of grid items inside their individual grid cells.
+
+Think:
+
+CELL
+┌──────────────────────────┐
+│ │
+│ [ ITEM ] │
+│ │
+└──────────────────────────┘
+↑
+justify-items
+
+It does not move the entire grid.
+
+It moves the items inside their cells.
+
+items
+Controls:
+ITEM
+inside
+CELL
+
+
+content
+Controls:
+GRID
+inside
+CONTAINER
+
+Justify-content
+
+justify-content controls the horizontal position of the entire grid inside the grid container.
+
+align-content
+
+align-content controls the vertical position/distribution of the entire grid inside its container.
+ values: start, end, center, stretch, space-around, space-between, space-evenly
+
+
+ 
+Using the minmax() function:
+The minmax() function takes two parameters: a minimum value and a maximum value.
+It enables grid tracks to have a range of acceptable sizes rather than a fixed size.
+Syntax example: grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+
+.container {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+
+https://cssgridgarden.com/
+
+https://codingfantasy.com/games/css-grid-attack/play
+
+
+
+ 
+Media types:
+screen: Used for computer screens, tablets, smartphones, etc.
+print: Used for printed documents.
+all: Used for all media types.
+
+if media type is not specified, it defaults to all.
+
+Media features:
+width: The width of the viewport.
+height: The height of the viewport.
+orientation: The orientation of the viewport (portrait or landscape).
+
+portrait: The viewport is taller than it is wide.
+landscape: The viewport is wider than it is tall.
+
+combining media features:
+@media screen and (min-width: 600px) and (orientation: landscape) {
+    /* CSS rules for screens wider than 600px in landscape orientation */
+}
+
+logical operators:
+and: Combines multiple conditions. All conditions must be true for the CSS rules to apply.
+<!-- or: Combines multiple conditions. At least one condition must be true for the CSS rules to apply. -->
+not: Negates a condition. The CSS rules will apply if the condition is false.
+comma (,): Used to separate multiple media queries. The CSS rules will apply if any of the specified media queries are true.
+
+Not operator is a media query modifier it negates the media query that follows it. It allows you to apply styles when a certain condition is not met.
+
+if you use the not operator, you must also specify a media type. The not operator cannot be used with the all media type.
+
+<form action="">
+    <input type="tex">
+</form>
