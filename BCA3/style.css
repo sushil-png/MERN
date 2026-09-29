@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 1500px;
+}
+
+.container {
+    margin-left: 50px;
+    margin-top: 50px;
+
+    width: 500px;
+    height: 600px;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: aqua;
+    position: relative;
+}
+
+.block1 {
+    width: 100px;
+    height: 100px;
+
+    background-color: blue;
+
+    position: static;
+    top: 0px;
+}
+
+.block2 {
+    width: 100px;
+    height: 100px;
+
+    background-color: red;
+
+    position: static;
+}
+
+.block3 {
+    width: 200px;
+    height: 100px;
+
+    background-color: green;
+
+    position: static;
+    top: 150px;
+    left: 100px;
+
+    z-index: 1;
+}
+
+.block4 {
+    width: 300px;
+    height: 100px;
+
+    background-color: rgb(112, 165, 42);
+
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 10;
+}

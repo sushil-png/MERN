@@ -1,0 +1,29 @@
+.container{
+    /* display: flex; */
+    border:2px solid black;
+    height: 800px;
+    background-color: aqua;
+}
+
+.block{
+    border: 2px solid black;
+    height: 200px;
+    width:200px;
+    margin-bottom: 20px;
+    background-color: black;
+}
+#second{
+    position: fixed;
+    height: 100px;
+    background-color: blue;
+    top: 400px;
+    z-index: 1;
+    
+}
+#third{
+    position: relative;
+    background-color: burlywood;
+    width: 500px;
+    right: 200px;
+    z-index: ;
+}   
