@@ -122,5 +122,35 @@ Responsive Grid Example:
   <div class="bg-blue-500 p-4">Item 4</div>
 </div>
 
+questions:
+1. Hello Tailwind
+Create a heading:
+Text: Welcome to Tailwind CSS 
+Font size: 4xl 
+Bold 
+Blue text 
+Center aligned
+
+2. Simple Box 
+Create a <div>with: 
+Width: 300px 
+Padding: 20px 
+Gray background 
+Border: 1px solid #ccc 
+Rounded corners
+
+3. Styled Button 
+Create a button with: 
+Blue background 
+White text 
+Horizontal and vertical padding 
+Rounded corners 
+Hover → darker blue
+
+homework:
+1. What is utility-first CSS and how does it differ from traditional CSS methodologies?
+2. What are the advantages and disadvantages of using Tailwind CSS in a project?
+3. How do you set up Tailwind CSS in a project, and what are the basic classes provided by the framework?
+
 */
 

@@ -466,8 +466,34 @@
 
 // let x=10;
 // x=5;
-const obj ={
-  "first name":"sushil",
-};
-obj["first name"]="raj";
+// const obj ={
+//   "first name":"sushil",
+// };
+// obj["first name"]="raj";
+
+// let arr=[];//array literals
+// let brr=[2,4,7];
+// brr.push(2);
+// arr.push([2,5,6,8]);
+// arr.push(2,5,6,8);
+// arr.push("sushil");
+// arr.unshift("hii")
+// console.log(arr);
+// arr.pop();
+// console.log(arr.shift())
+// console.log(arr);
+// console.log(brr);
+/*
+push()//
+
+pop()
+shift()
+unshift()
+*/
+
+let arr=[5,8,9,10];
+let brr=[arr];
+brr.push(100);
+console.log(brr[0][0]);
+console.log(arr);
 
